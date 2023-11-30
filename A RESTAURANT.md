@@ -8,9 +8,9 @@
 
 **BIRLA VIDYA MANDIR, NAINITAL**
 
-` `**(Sarala Birla Group of Schools)***         
-\*
-`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      `**Project Record File** 
+**(Sarala Birla Group of Schools)**
+
+**Project Record File** 
 
 FOR
 
@@ -24,16 +24,14 @@ ON
 
 **SUBMITTED BY**
 
-**Yatharth Agarwal**   [                       ] Class XII A
-
-**Yash Mishra**   [                       ] Class XII A
+**Yash Mishra**   [ Class XII A ]
 
 COMPLETED UNDER THE GUIDANCE OF
 
 **Mr. Kirti Kamal Bhardwaj**
 PGT
 
-` `(Informatics Practices)
+(Informatics Practices)
 
 Birla Vidya Mandir, Nainital 
 
@@ -317,85 +315,60 @@ System flow diagram is a visual representation of all processed in sequential or
 **SOURCE CODE** 
 
 **FOR LOGIN BUTTON**
-**
-`        `String p=new String(pPF.getPassword());       String id= uTF.getText();
-
-`        `try{        rs=stmt.executeQuery("select\*from managers where username='"
-
-`                `+uTF.getText()+"' AND PASSWORD='"+p+"'");               
-
-`        `if(rs.next()){        FirstPage mb=new FirstPage();        mb.show();        this.dispose();        }        
-
-`        `else {            JOptionPane.showMessageDialog(null,"USERNAME OR PASSWORD IS INCORRECT!!!");         } catch(Exception ex){            ex.printStackTrace();        }
+```
+String p=new String(pPF.getPassword());       String id= uTF.getText();
+try{        rs=stmt.executeQuery("select*from managers where username='"+uTF.getText()+"' AND PASSWORD='"+p+"'");       
+if(rs.next()){        FirstPage mb=new FirstPage();        mb.show();        this.dispose();        }        
+else {            JOptionPane.showMessageDialog(null,"USERNAME OR PASSWORD IS INCORRECT!!!");         } catch(Exception ex){            ex.printStackTrace();        }
+```
 
 **FOR RESET PASSWORD**
-
+```
 String p=new String(pTF.getPassword());		  String p1=new String(P1TF.getPassword()); 
-
 String rp=new String(rpTF.getPassword());
-
 if(p.equals(p1)){       
-
-`        `try{         stmt.executeUpdate("update cont set password='"+p+"' where folio= '"+rp+"' 
-
-`        `JOptionPane.showMessageDialog(null,"Your Password Was Changed!!");    } 
-
+try{         stmt.executeUpdate("update cont set password='"+p+"' where folio= '"+rp+"' 
+JOptionPane.showMessageDialog(null,"Your Password Was Changed!!");    } 
 catch(Exception ex){                 ex.printStackTrace();	}
-
-`         `Login sn = new Login();     sn.show();     this.dispose();	}
-
-`  `else {    JOptionPane.showMessageDialog(null,"TYPE THE CORRECT RECOVERY PIN");            }
-
+Login sn = new Login();     sn.show();     this.dispose();	}
+else {    JOptionPane.showMessageDialog(null,"TYPE THE CORRECT RECOVERY PIN");            }
+```
 **THE BILL PAGE**  (AFTER initComponents())
-
+```
 totalTF.setText(""+0);     
-
-`    `stmt=cn.createStatement();    stmt1=cn.createStatement();    stmt2 =cn.createStatement();    
-
-`     `catCBO.setModel(dcm);      itemCBO.setModel(dcm1);
-
-`    `rs=stmt.executeQuery("select distinct(category) from newmenu ORDER BY CATEGORY");   
-
-`    `while(rs.next()){        dcm.addElement(rs.getString("category"));    }        }
-
-` `catch (Exception ex) {        ex.printStackTrace();    }
-**
-
-
+stmt=cn.createStatement();    stmt1=cn.createStatement();    stmt2 =cn.createStatement();    
+catCBO.setModel(dcm);      itemCBO.setModel(dcm1);
+rs=stmt.executeQuery("select distinct(category) from newmenu ORDER BY CATEGORY");   
+while(rs.next()){        dcm.addElement(rs.getString("category"));    }        }
+catch (Exception ex) {        ex.printStackTrace();    }
+```
 **(for category CBO)**
-
+```
 try{   String sql = "select \* from newmenu where category='"+catCBO.getSelectedItem().toString()+"'ORDER BY TEM";
-
 rs1=stmt1.executeQuery(sql);          dcm1.removeAllElements();
-
-`    `while(rs1.next()){        dcm1.addElement(rs1.getString("item"));    } 	}
-
-` `catch(Exception ex) {        ex.printStackTrace();    }
-
-` `**(for item CBO)**
-
-try{      String sql1 = "select \* from newmenu where item='"+itemCBO.getSelectedItem().toString()+"'";
-
-rs2=stmt2.executeQuery(sql1);             
-
-`    `while(rs2.next()){          amtTF.setText(rs2.getString("price")+"");    }	} 
-
+while(rs1.next()){        dcm1.addElement(rs1.getString("item"));    } 	}
 catch(Exception ex) {        ex.printStackTrace();    }
-
+```
+**(for item CBO)**
+```
+try{      String sql1 = "select \* from newmenu where item='"+itemCBO.getSelectedItem().toString()+"'";
+rs2=stmt2.executeQuery(sql1);             
+while(rs2.next()){          amtTF.setText(rs2.getString("price")+"");    }	} 
+catch(Exception ex) {        ex.printStackTrace();    }
+```
 **To navigate to any page**
-**
-`    `Membership mb=new Membership();        mb.show();
-
+```
+Membership mb=new Membership();        mb.show();
+```
 **To update any record**
-**
-`    `try{   stmt.executeUpdate("update empl set name='"+nTF.getText()+"' where emplno="+eTF.getText())	;       }   
-
+```
+try{   stmt.executeUpdate("update empl set name='"+nTF.getText()+"' where emplno="+eTF.getText())	;       }   
 catch(Exception ex){            ex.printStackTrace();    }     JOptionPane.showMessageDialog(null,"SUCCESSFUL!!!");
-
+```
 **To create the connection between MySql and JAVA**
-
+```
 cn= DriverManager.getConnection("jdbc:mysql://localhost/d2155329","root","");
-
+```
 **Restaurant Management System DFD Template**
 
 A library management system data flow diagram (DFD) shows how the information within a library system needs to flow to meet the needs of authorities, students, library administrators. Adapt the following library management system DFD template to match the circumstances of your library. 
